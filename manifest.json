@@ -1,0 +1,35 @@
+{
+  "schemaVersion": 1,
+  "id": "local.bili-context",
+  "name": "Bili Context",
+  "version": "0.1.0",
+  "description": "Live billion-context (bili) compression dashboard for PI-Desktop: proxy health, per-session compression blocks, token savings and prefix-cache health, read straight from the local bili proxy.",
+  "i18n": {
+    "en": {
+      "name": "Bili Context",
+      "description": "Live billion-context (bili) compression dashboard: proxy health, per-session compression blocks, tokens saved and prefix-cache hit rate, read straight from the local bili proxy.",
+      "safetyNotes": "Read-only dashboard. The plugin's own process queries the local billion-context proxy on 127.0.0.1 using Node's built-in fetch against the proxy's own management API (/__bili/health, /stats, /status, /config, /sessions, /cache-report). No credentials are sent, nothing on disk is read or written, and no agent tools are registered. Outbound traffic is loopback only; nothing is sent to any remote host. The only user-visible side effect is the optional Open web UI button, which launches your browser at the local proxy address."
+    },
+    "zh-CN": {
+      "name": "Bili Context",
+      "description": "billion-context (bili) 压缩面板：代理健康状态、各会话的压缩块、已节省 token 与前缀缓存命中率，全部直接读取本地 bili 代理。",
+      "safetyNotes": "只读面板。插件自身进程使用 Node 内置 fetch，仅访问 127.0.0.1 上本地 billion-context 代理的管理 API（/__bili/health、/stats、/status、/config、/sessions、/cache-report）。不发送任何凭据，不读写磁盘文件，不注册 agent 工具。出站流量仅限回环地址，不会发送到任何远程主机。唯一的用户可见副作用是「Open web UI」按钮，它会用浏览器打开本地代理地址。"
+    }
+  },
+  "author": "local",
+  "main": "main.js",
+  "categories": ["productivity", "developer-tools"],
+  "permissions": ["ui.view"],
+  "contributes": {
+    "views": [
+      {
+        "id": "bili-context",
+        "title": { "en": "Bili Context", "zh-CN": "Bili Context" },
+        "icon": "server",
+        "entry": "renderer/index.html"
+      }
+    ]
+  },
+  "engines": { "piDesktop": ">=0.9.0" },
+  "activationEvents": ["onStartup"]
+}

@@ -1,0 +1,61 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>Bili Context</title>
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header class="toolbar">
+      <div class="title">
+        <span class="dot" id="status-dot" data-state="unknown"></span>
+        <strong>Bili Context</strong>
+        <span class="port mono" id="port-label">—</span>
+      </div>
+      <div class="actions">
+        <button id="btn-refresh" class="btn" type="button">Refresh</button>
+        <button id="btn-auto" class="btn" type="button" aria-pressed="true">Auto 5s</button>
+        <button id="btn-webui" class="btn" type="button">Open web UI</button>
+      </div>
+    </header>
+
+    <main id="root">
+      <section class="empty" id="empty">
+        <p id="empty-msg">Connecting to the bili proxy…</p>
+        <p class="hint">
+          The plugin queries <code>127.0.0.1</code> on the proxy's own
+          <code>/__bili/*</code> management API. Start PI-Desktop (which spawns the
+          proxy) or run <code>bili start</code>.
+        </p>
+      </section>
+
+      <div id="content" hidden>
+        <section class="cards" id="cards"></section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Sessions</h2>
+            <span class="hint" id="sessions-hint"></span>
+          </div>
+          <div class="scroll"><table class="data" id="sessions-table"></table></div>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head">
+            <h2>Cache report</h2>
+            <span class="hint" id="cache-hint"></span>
+          </div>
+          <pre class="report mono" id="cache-report"></pre>
+        </section>
+
+        <section class="panel">
+          <div class="panel-head"><h2>Proxy</h2></div>
+          <dl class="kv" id="proxy-kv"></dl>
+        </section>
+      </div>
+    </main>
+
+    <script src="script.js"></script>
+  </body>
+</html>

@@ -1,0 +1,31 @@
+# Dependencies
+node_modules/
+.pnpm-store/
+
+# Build output
+dist/
+build/
+*.tsbuildinfo
+
+# Packed plugin artifacts
+*.piplug
+
+# Logs
+*.log
+npm-debug.log*
+yarn-error.log*
+
+# Editor / OS
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/*
+!.vscode/extensions.json
+*.swp
+
+# Env and secrets — never commit these
+.env
+.env.*
+!.env.example
+*.pem
+*.key
